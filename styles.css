@@ -91,30 +91,64 @@ body {
 }
 
 /* Styles des boutons Pause et Recommencer */
+/* ✅ Conteneur des boutons bien positionné */
+/* ✅ Conteneur des boutons */
+/* ✅ Conteneur des boutons - Bien positionné au-dessus du footer */
 #controls {
     position: fixed;
-    bottom: 100px;
+    bottom: 120px; /* ✅ Remonte les boutons pour qu’ils ne touchent pas le footer */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
+    justify-content: center;
+    gap: 40px; /* ✅ ESPACE ENTRE LES BOUTONS */
+    background: rgba(0, 0, 0, 0.5); /* ✅ Fond semi-transparent */
+    padding: 15px 50px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+/* ✅ Style des boutons */
+#controls {
+    position: fixed !important;
+    bottom: 120px !important; /* ✅ Remonte bien les boutons */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 40px !important; /* ✅ Espacement entre les boutons */
+    background: rgba(0, 0, 0, 0.5) !important; /* ✅ Fond semi-transparent */
+    padding: 15px 50px !important;
+    border-radius: 10px !important;
+    z-index: 1000 !important;
 }
 
 #controls button {
-    background-color: #ffff;
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    padding: 15px 40px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    background: white !important; /* ✅ Fond blanc */
+    color: black !important; /* ✅ Texte noir */
+    border: none !important; /* ✅ Supprime le contour */
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out !important;
+    min-width: 180px !important;
+    text-align: center !important;
 }
 
 #controls button:hover {
-    background-color: #ffcc00;
+    background: black !important;
+    color: white !important;
 }
+
+#controls button i {
+    font-size: 20px !important;
+}
+
+
+
+
 
 
 
