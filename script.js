@@ -12,6 +12,7 @@
 // Un compteur de diamants s'incrémente à chaque passage de niveau.
 // Gestion de l'augmentation de la vitesse de la balle
 // btn recommencer, btn pause html, css également
+// musique !!!!!
 
 //problemes rencontrés:
 
@@ -89,6 +90,7 @@ function preload() {
     this.load.image('gifts', 'img/encore.png'); // Icône cadeaux
     this.load.image('pause', 'img/jouer.png'); // Icône pause
     this.load.image('diamonds', 'img/teteDiams.png'); // Icône diamant
+    this.load.audio('backgroundMusic', 'img/Graceful.mp3'); // musique
 }
 
 // Création des objets du jeu
@@ -149,6 +151,28 @@ function create() {
             ballLaunched = true;
         }
     });
+
+    let music = this.sound.add('backgroundMusic', { loop: true, volume: 0.5 }); // Musique en boucle
+    music.play();
+    
+    let musicPlaying = true; // Variable pour savoir si la musique joue
+    
+    // Sélection du bouton dans le DOM
+    const musicButton = document.getElementById('music-toggle');
+    
+    // ✅ Ajouter l'événement pour activer/désactiver la musique
+    musicButton.addEventListener('click', () => {
+        if (musicPlaying) {
+            music.pause();
+            musicButton.textContent = "🎵 Play"; // Change le texte
+        } else {
+            music.resume();
+            musicButton.textContent = "🎵 Pause";
+        }
+        musicPlaying = !musicPlaying;
+    });
+    
+
 }
 
 // Création des briques
@@ -298,5 +322,18 @@ restartButton.addEventListener("click", () => {
     pauseButton.textContent = "⏸ Pause"; 
     isPaused = false;
 });
+
+    // Menu Burger
+    const burger = document.createElement("div");
+    burger.className = "burger-menu";
+    burger.innerHTML = "☰";
+    document.querySelector(".navbar").prepend(burger);
+
+    const navLinks = document.querySelector(".nav-center");
+    burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+
 
     

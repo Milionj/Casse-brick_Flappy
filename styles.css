@@ -1,4 +1,4 @@
-/* ✅ Réinitialisation et mise en page de base */
+/*  Réinitialisation et mise en page de base */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-/* ✅ Fond avec image et centrage du contenu */
+/*  Fond avec image et centrage du contenu */
 body {
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@ body {
     overflow: hidden;
 }
 
-/* ✅ Barre de navigation */
+/*  Barre de navigation */
 .navbar {
     position: fixed; /* Fixe la barre en haut */
     top: 0;
@@ -130,10 +130,64 @@ body {
     border: 5px solid rgba(129, 128, 80, 0.8);
     background-color: #5C2E1F;
     border-radius: 20px;
-    margin-top: 70px; /* 🔹 Corrige le chevauchement avec la navbar */
+    margin-top: 70px; /*  Corrige le chevauchement avec la navbar */
 }
 
-/* ✅ Footer bien aligné et lisible */
+.burger-menu {
+    font-size: 2em;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-center {
+    display: flex;
+    gap: 20px;
+}
+
+#music-toggle {
+    position: fixed;
+    top: 50px;
+    right: 150px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#music-toggle:hover {
+    background-color: #ff9900;
+}
+
+
+/* Affichage du menu sur mobile */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .nav-center {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: white;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-center.active {
+        display: flex;
+    }
+}
+
+
+/*  Footer bien aligné et lisible */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -149,7 +203,7 @@ body {
     text-align: center;
 }
 
-/* ✅ Partie gauche : Réseaux sociaux */
+/*  Partie gauche : Réseaux sociaux */
 .footer-left {
     display: flex;
     align-items: center;
@@ -172,7 +226,7 @@ body {
     text-decoration: underline;
 }
 
-/* ✅ Partie droite : Mentions légales et à propos */
+/* Partie droite : Mentions légales et à propos */
 .footer-right {
     display: flex;
 }

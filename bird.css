@@ -13,9 +13,10 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: url('img/brick-wall.jpg') no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
+    background-image: url(/img/boy-5699320_1920.jpg);
+    /* background: url('img/brick-wall.jpg') no-repeat center center fixed; */
+    margin: 0;
+    overflow: hidden;
 }
 
 /*  NAVIGATION */
@@ -131,6 +132,41 @@ body {
 #controls button:hover {
     background-color: #ffcc00;
 }
+
+.burger-menu {
+    font-size: 2em;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-center {
+    display: flex;
+    gap: 20px;
+}
+
+/* Affichage du menu sur mobile */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .nav-center {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: white;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-center.active {
+        display: flex;
+    }
+}
+
 
 /* FOOTER */
 .footer {

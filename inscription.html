@@ -3,16 +3,25 @@
     <head>
         <meta charset="UTF-8">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
-            script-src 'self'  https://unpkg.com; 
-            style-src 'self'  https://cdnjs.cloudflare.com https://unpkg.com ;
-            font-src 'self' https://cdnjs.cloudflare.com;
-            img-src 'self'  data:  https://a.tile.openstreetmap.org https://b.tile.openstreetmap.org https://c.tile.openstreetmap.org https://unpkg.com;"> 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"                
-                integrity="sha384-5e2ESR8Ycmos6g3gAKr1Jvwye8sW4U1u/cAKulfVJnkakCcMqhOudbtPnvJ+nbv7"
-                crossorigin="anonymous"/>
+
+        <!-- Sécurisation du site avec Content Security Policy (CSP) -->
+        <meta http-equiv="Content-Security-Policy" content="
+            default-src 'self';  /* ⚠️ N'autorise que les ressources locales (évite les attaques externes) */
+            script-src 'self' 'nonce-ABC123';  /* Seuls les scripts internes et ceux avec un nonce sont autorisés */
+            style-src 'self' 'nonce-ABC123';  /*  Seuls les styles internes et ceux avec un nonce sont autorisés */
+            font-src 'self' https://cdnjs.cloudflare.com;  /* Autorise les polices depuis Cloudflare */
+            img-src 'self' data: 
+                https://a.tile.openstreetmap.org 
+                https://b.tile.openstreetmap.org 
+                https://c.tile.openstreetmap.org;">  /* Autorise les images locales et celles des cartes OpenStreetMap */
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+              integrity="sha384-GSh1j6MYw2lMZ4DkB2v0s+T1ReKHcX5g2xPq8CpqOA6yGxxFP5H7yO/tCTDJYxlm" 
+              crossorigin="anonymous"/>
+        <!-- L'attribut `integrity` permet de vérifier que le fichier n'a pas été modifié par un tiers (sécurité renforcée) -->
+        <!-- `crossorigin="anonymous"` empêche l'envoi de cookies aux serveurs externes pour éviter des fuites de données -->
         <link rel="stylesheet" href="inscription.css">
     </head>
+
     
     <body>
         <nav class="navbar">
@@ -37,11 +46,11 @@
                     </div> 
                     <div class="games-container">
                         <div class="game-card">
-                            <img src="img/brickbreaker.png" alt="Casse-Briques">
+                            <img src="img/ai-generated-9143333_1920.jpg" alt="Casse-Briques">
                             <a href="index.html" class="play-button">Jouer</a>
                         </div>
                         <div class="game-card">
-                            <img src="img/flappybird.png" alt="Flappy Bird">
+                            <img src="img/bird1.png" alt="Flappy Bird">
                             <a href="bird.html" class="play-button">Jouer</a>
                         </div>
                     </div> 
@@ -52,14 +61,15 @@
                         <h2>Contact</h2>
                         <p>Envoyez-nous un message</p>                    
                     </div> 
-                    <div class="contact-container">
-                        <input type="text" placeholder="Votre nom"  name="lastname" id="lastname">
-                        <input type="text" placeholder="Votre prénom"  name="firstname" id="firstname">
-                        <input type="email" placeholder="Votre email"  name="email" id="email">
+                    <form id="contact-form" class="contact-container">
+                        <input type="text" placeholder="Votre nom" name="lastname" id="lastname">
+                        <input type="text" placeholder="Votre prénom" name="firstname" id="firstname">
+                        <input type="email" placeholder="Votre email" name="email" id="email">
                         <textarea placeholder="Votre message" name="message" rows="4" id="message"></textarea>
-                        <button type="button" class="validate-button">Envoyer</button>
-                    </div> 
+                        <button type="submit" class="validate-button">Envoyer</button>
+                    </form> 
                 </div> 
+                
             </div>    
         </main>
 

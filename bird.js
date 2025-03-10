@@ -180,3 +180,15 @@ document.getElementById("restart-btn").addEventListener("click", () => {
 document.getElementById("settings-btn").addEventListener("click", () => {
     alert("Paramètres non implémentés !");
 });
+
+
+    // Menu Burger
+    const burger = document.createElement("div");
+    burger.className = "burger-menu";
+    burger.innerHTML = "☰";
+    document.querySelector(".navbar").prepend(burger);
+
+    const navLinks = document.querySelector(".nav-center");
+    burger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });

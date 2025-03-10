@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".contact-container");
+    const form = document.getElementById("contact-form"); // Utilise un ID précis
     const fields = {
         lastname: {
             element: document.getElementById("lastname"),
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         email: {
             element: document.getElementById("email"),
-            regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 
+            regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/, 
             error: "Veuillez entrer un email valide."
         },
         message: {
@@ -61,6 +61,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (isValid) {
             alert("Formulaire soumis avec succès !");
+            form.reset();
+            Object.values(fields).forEach(field => {
+                field.element.style.border = "1px solid #ccc";
+            });
         }
     });
-});
+
+        // Menu Burger
+        const burger = document.createElement("div");
+        burger.className = "burger-menu";
+        burger.innerHTML = "☰";
+        document.querySelector(".navbar").prepend(burger);
+    
+        const navLinks = document.querySelector(".nav-center");
+        burger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    });
+
+
