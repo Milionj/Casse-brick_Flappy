@@ -1,3 +1,4 @@
+/* ==================== RÉINITIALISATION ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +6,10 @@
 }
 
 /* ==================== BODY ==================== */
+html, body {
+    height: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -15,7 +20,7 @@ body {
     font-family: Arial, sans-serif;
     color: white;
     overflow-x: hidden;
-    padding-bottom: 90px; /* espace pour footer fixe */
+    padding-bottom: 110px; /* ✅ espace réservé pour le footer fixe */
 }
 
 /* ==================== NAVBAR ==================== */
@@ -71,6 +76,7 @@ body {
     margin-top: 90px;
     width: 100%;
     padding: 20px;
+    flex: 1; /* ✅ pousse le footer */
 }
 
 /* ==================== HUD ==================== */
@@ -85,8 +91,6 @@ body {
     font-size: 22px;
     font-weight: bold;
     letter-spacing: 1px;
-
-    /* ✅ Style amélioré et plus visible */
     background: linear-gradient(90deg, #1E1E1E, #3D3D3D);
     border: 2px solid #ffcc00;
     border-radius: 12px;
@@ -105,9 +109,8 @@ body {
 #lengthDisplay {
     color: #ffcc00;
     font-weight: 700;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
-
 
 #hud .title {
     color: #9A00FF;
@@ -181,7 +184,7 @@ body {
 
 /* ==================== START SCREEN ==================== */
 #start-screen {
-    position: relative; /* placé sous les boutons */
+    position: relative;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -245,78 +248,20 @@ body {
 }
 
 /* ==================== RESPONSIVE ==================== */
-
-/* TABLETTE */
 @media (max-width: 1024px) {
-    #gameContainer {
-        width: 550px;
-        height: 700px;
-    }
-
-    #hud {
-        width: 550px;
-        font-size: 18px;
-    }
-
-    #controls button {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
+    #gameContainer { width: 550px; height: 700px; }
+    #hud { width: 550px; font-size: 18px; }
+    #controls button { font-size: 18px; padding: 10px 20px; }
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 0 15px;
-    }
-
-    .nav-center {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: white;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .nav-center.active {
-        display: flex;
-    }
-
-    .burger-menu {
-        display: block;
-    }
-
-    #hud {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    #gameContainer {
-        width: 90vw;
-        height: 70vh;
-        border-width: 4px;
-    }
-
-    #controls {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    #controls button {
-        width: 80%;
-        font-size: 16px;
-        padding: 10px;
-    }
-
-    .footer {
-        flex-direction: column;
-        gap: 10px;
-        font-size: 14px;
-        padding: 15px;
-    }
+    .navbar { padding: 0 15px; }
+    .nav-center { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: white; text-align: center; padding: 10px; }
+    .nav-center.active { display: flex; }
+    .burger-menu { display: block; }
+    #hud { flex-direction: column; align-items: center; gap: 10px; }
+    #gameContainer { width: 90vw; height: 70vh; border-width: 4px; }
+    #controls { flex-direction: column; gap: 10px; }
+    #controls button { width: 80%; font-size: 16px; padding: 10px; }
+    .footer { flex-direction: column; gap: 10px; font-size: 14px; padding: 15px; }
 }
