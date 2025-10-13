@@ -17,8 +17,8 @@ body {
   font-family: Arial, sans-serif;
   color: white;
   overflow-x: hidden;
-  padding-top: 80px;      /* espace pour la navbar */
-  padding-bottom: 100px;  /* espace pour le footer */
+  padding-top: 80px;     /* espace pour navbar */
+  padding-bottom: 90px;  /* espace pour footer */
 }
 
 /* ==================== NAVBAR ==================== */
@@ -73,7 +73,7 @@ body {
   align-items: center;
   width: 100%;
   flex: 1;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 /* ==================== HUD ==================== */
@@ -81,16 +81,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 700px;
+  width: 650px;
   max-width: 90%;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  font-size: 20px;
+  padding: 8px 16px;
+  margin-bottom: 15px;
+  font-size: 18px;
   font-weight: bold;
   background: linear-gradient(90deg, #1E1E1E, #3D3D3D);
   border: 2px solid #ffcc00;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 #hud .hud-item {
@@ -100,24 +100,24 @@ body {
 
 #scoreDisplay { color: #63E0BE; }
 #lengthDisplay { color: #ffcc00; font-weight: 700; white-space: nowrap; }
-.title { color: #9A00FF; font-size: 26px; }
+.title { color: #9A00FF; font-size: 22px; }
 
 /* ==================== CONTENEUR DU JEU ==================== */
 #gameContainer {
   position: relative;
-  width: min(650px, 90vw);
-  aspect-ratio: 3 / 4; /* ✅ ratio plus compact et harmonieux */
+  width: min(600px, 90vw);
+  aspect-ratio: 4 / 5; /* ✅ plus équilibré */
   background-color: #4ec0ca;
-  border: 5px solid black;
-  border-radius: 25px;
+  border: 4px solid black;
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Assure que le canvas ou les éléments s’adaptent */
+/* Assure que le canvas ou les éléments visuels s’adaptent */
 #gameContainer canvas {
   width: 100% !important;
   height: 100% !important;
@@ -126,8 +126,8 @@ body {
 /* ==================== ÉLÉMENTS DU JEU ==================== */
 #bird {
   position: absolute;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   background: url('img/bird1.png') no-repeat center/contain;
   left: 90px;
   top: 50%;
@@ -136,7 +136,7 @@ body {
 
 .pipe {
   position: absolute;
-  width: 70px;
+  width: 60px;
   background-color: #8F3434;
   border: 2px solid black;
 }
@@ -146,31 +146,31 @@ body {
 /* ==================== START SCREEN ==================== */
 #start-screen {
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.6);
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 8px 15px;
+  border-radius: 8px;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 /* ==================== CONTROLS ==================== */
 #controls {
   display: flex;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 18px;
+  margin-top: 15px;
   justify-content: center;
 }
 
 #controls button {
   background-color: white;
   color: black;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  padding: 10px 25px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -187,7 +187,7 @@ body {
   align-items: center;
   background-color: #000;
   color: #fff;
-  padding: 15px 30px;
+  padding: 12px 25px;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -204,7 +204,7 @@ body {
 
 .footer h4 {
   color: #9A00FF;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .footer a {
@@ -219,13 +219,13 @@ body {
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1024px) {
-  #hud { width: 600px; font-size: 18px; }
-  #gameContainer { width: 500px; }
+  #hud { width: 500px; font-size: 16px; }
+  #gameContainer { width: 480px; }
 }
 
 @media (max-width: 768px) {
-  #hud { flex-direction: column; font-size: 16px; }
-  #gameContainer { width: 85vw; aspect-ratio: 3 / 4; }
-  #controls { flex-direction: column; }
-  .footer { flex-direction: column; font-size: 14px; padding: 12px; }
+  #hud { flex-direction: column; font-size: 15px; }
+  #gameContainer { width: 85vw; aspect-ratio: 4 / 5; }
+  #controls { flex-direction: column; gap: 10px; }
+  .footer { flex-direction: column; font-size: 14px; padding: 10px; }
 }
