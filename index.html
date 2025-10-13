@@ -9,36 +9,41 @@
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-left"><span class="logo">WEBS GAMING CENTER</span></div>
-    <div class="nav-center">
-      <a href="#">Brick breaker</a>
+    <div class="nav-left">
+      <span class="logo">WEBS GAMING CENTER</span>
+    </div>
+
+    <!-- ✅ Menu principal avec ID -->
+    <div class="nav-center" id="main-nav">
+      <a href="index.html">Brick breaker</a>
       <a href="bird.html">Flappy bird</a>
     </div>
+
     <div class="nav-right">
       <a href="inscription.html">Se connecter / S'inscrire</a>
     </div>
   </nav>
 
-  <!-- HUD (au-dessus du jeu, jamais dans le conteneur) -->
+  <!-- HUD -->
   <div id="brickActu">
     <span id="level-display">LEVEL: 1</span>
     <span id="lives-display">❤️❤️❤️</span>
     <span id="diamonds-display">💎: 0</span>
   </div>
 
-  <!-- Jeu -->
+  <!-- Conteneur du jeu -->
   <div id="game-container"></div>
 
-  <!-- Contrôles (en dessous du jeu, pas en position:fixed) -->
+  <!-- Contrôles -->
   <div id="controls">
     <button id="pause-btn">⏸ Pause</button>
     <button id="restart-btn">🔄 Recommencer</button>
     <button id="music-toggle">🎵 Musique</button>
   </div>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-left">
       <h4>Mes réseaux</h4>
