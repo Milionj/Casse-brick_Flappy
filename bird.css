@@ -17,8 +17,8 @@ body {
   font-family: Arial, sans-serif;
   color: white;
   overflow-x: hidden;
-  padding-top: 80px;     /* espace pour navbar */
-  padding-bottom: 90px;  /* espace pour footer */
+  padding-top: 80px; /* espace pour la navbar */
+  padding-bottom: 160px; /* ✅ espace pour footer + boutons visibles */
 }
 
 /* ==================== NAVBAR ==================== */
@@ -105,8 +105,8 @@ body {
 /* ==================== CONTENEUR DU JEU ==================== */
 #gameContainer {
   position: relative;
-  width: min(600px, 90vw);
-  aspect-ratio: 4 / 5; /* ✅ plus équilibré */
+  width: min(580px, 90vw);
+  aspect-ratio: 4 / 5; /* ✅ proportion plus basse */
   background-color: #4ec0ca;
   border: 4px solid black;
   border-radius: 20px;
@@ -153,14 +153,17 @@ body {
   border-radius: 8px;
   text-align: center;
   margin-top: 12px;
+  z-index: 10;
 }
 
 /* ==================== CONTROLS ==================== */
 #controls {
   display: flex;
   gap: 18px;
-  margin-top: 15px;
+  margin-top: 10px;
   justify-content: center;
+  flex-wrap: wrap;
+  z-index: 10;
 }
 
 #controls button {
@@ -173,6 +176,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 140px;
 }
 
 #controls button:hover {
@@ -193,7 +197,7 @@ body {
   bottom: 0;
   left: 0;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
+  z-index: 999;
 }
 
 .footer-left, .footer-right {
