@@ -1,0 +1,278 @@
+/* ==================== RÉINITIALISATION ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================== BODY ==================== */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background: url(/img/boy-5699320_1920.jpg) no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+    padding-bottom: 100px; /* pour que le footer ne cache pas le bas */
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #818050;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.nav-left .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.nav-center {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-center a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-center a:hover {
+    color: white;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* ==================== WRAPPER ==================== */
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height: 650px;
+    max-width: 95vw;
+    max-height: 80vh;
+    background-color: #5C2E1F;
+    border: 6px solid black;
+    border-radius: 25px;
+    margin-top: 100px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ==================== HUD ==================== */
+#brickActu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    max-width: 90%;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #1E1E1E, #3D3D3D);
+    border: 2px solid #ffcc00;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+#brickActu span {
+    flex: 1;
+    text-align: center;
+}
+
+#level-display {
+    color: #9A00FF; /* Violet - même ton que Flappy Bird */
+}
+
+#lives-display {
+    color: #ff4444;
+    white-space: nowrap; /* Empêche le retour des ❤️ */
+}
+
+#diamonds-display {
+    color: #63E0BE;
+}
+
+/* ==================== CONTROLS ==================== */
+#controls {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#controls button {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    text-align: center;
+}
+
+#controls button:hover {
+    background-color: #ffcc00;
+    transform: scale(1.05);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    background-color: #000;
+    color: #fff;
+    padding: 25px 10px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.footer-left, .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer h4 {
+    color: #9A00FF;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer a {
+    color: #63E0BE;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffcc00;
+}
+
+/* ==================== BURGER MENU ==================== */
+.burger-menu {
+    font-size: 2em;
+    cursor: pointer;
+    display: none;
+    color: black;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+/* TABLETTE */
+@media (max-width: 1024px) {
+    #game-container {
+        width: 700px;
+        height: 500px;
+    }
+
+    #brickActu {
+        width: 600px;
+        font-size: 18px;
+    }
+
+    #controls button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .nav-center {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: white;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .nav-center.active {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    #brickActu {
+        flex-direction: column;
+        gap: 5px;
+        font-size: 16px;
+        width: 90%;
+    }
+
+    #game-container {
+        width: 90vw;
+        height: 65vh;
+        border-width: 4px;
+    }
+
+    #controls {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    #controls button {
+        width: 80%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 14px;
+        padding: 15px;
+    }
+}
