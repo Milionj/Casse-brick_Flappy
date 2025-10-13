@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
-    <title>Casse-briques</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Casse-briques</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="nav-left">
-            <span class="logo">WEBS GAMING CENTER</span>
-        </div>
-        <div class="nav-center">
-            <a href="">Brick breaker</a>
-            <a href="bird.html">Flappy bird</a>
-        </div>
-        <div class="nav-right">
-            <a href="inscription.html">Se connecter / S'inscrire</a>
-        </div>
-    </nav>
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-left"><span class="logo">WEBS GAMING CENTER</span></div>
+    <div class="nav-center">
+      <a href="#">Brick breaker</a>
+      <a href="bird.html">Flappy bird</a>
+    </div>
+    <div class="nav-right">
+      <a href="inscription.html">Se connecter / S'inscrire</a>
+    </div>
+  </nav>
 
-    <!-- Conteneur du jeu -->
-    <div id="game-container"></div>
-    
-<div id="controls">
-    <button id="pause-btn">⏸ Pause</button>
-    <button id="restart-btn">🔄 Recommencer</button>
-    <button id="music-toggle">🎵 Pause</button>
-</div>
-
-    <!-- vies et diamants -->
-<div id="brickActu">
+  <!-- HUD (au-dessus du jeu, jamais dans le conteneur) -->
+  <div id="brickActu">
     <span id="level-display">LEVEL: 1</span>
     <span id="lives-display">❤️❤️❤️</span>
     <span id="diamonds-display">💎: 0</span>
+  </div>
 
-</div>
+  <!-- Jeu -->
+  <div id="game-container"></div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-left">
-            <h4>Mes réseaux</h4>
-            <a href="#">LinkedIn</a>
-            <a href="#">Twitter</a>
-        </div>
-        <div class="footer-right">
-            <a href="#">Les mentions légales</a>
-            <a href="#">À propos</a>
-        </div>
-    </footer>
+  <!-- Contrôles (en dessous du jeu, pas en position:fixed) -->
+  <div id="controls">
+    <button id="pause-btn">⏸ Pause</button>
+    <button id="restart-btn">🔄 Recommencer</button>
+    <button id="music-toggle">🎵 Musique</button>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      <h4>Mes réseaux</h4>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+    <div class="footer-right">
+      <a href="#">Les mentions légales</a>
+      <a href="#">À propos</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
