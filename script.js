@@ -6,6 +6,7 @@ let cursors, bricks, ball, paddle;
 let level = 1, lives = 3, diamondCount = 0;
 let ballLaunched = false, isPaused = false;
 let levelText, livesText, diamondText;
+const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
 const levelDisplay = document.getElementById("level-display");
 const livesDisplay = document.getElementById("lives-display");
@@ -67,10 +68,18 @@ function create() {
   livesText = this.add.text(850, 50, "❤️❤️❤️", { fontSize: "24px", fill: "#f00" });
   diamondText = this.add.text(850, 80, "💎: 0", { fontSize: "24px", fill: "#0ff" });
 
-  this.input.on("pointerdown", () => {
+  this.input.on("pointerdown", (pointer) => {
+    movePaddleToPointer(pointer);
     if (!ballLaunched) {
       ball.setVelocity(200, -200);
       ballLaunched = true;
+    }
+  });
+
+  this.input.on("pointermove", (pointer) => {
+    // Mobile: glisser le doigt pour déplacer la raquette.
+    if (pointer.isDown || pointer.pointerType === "touch" || isTouchDevice) {
+      movePaddleToPointer(pointer);
     }
   });
 
@@ -127,6 +136,16 @@ function update() {
   if (cursors.left.isDown && paddle.x > 40) paddle.setVelocityX(-400);
   else if (cursors.right.isDown && paddle.x < 960) paddle.setVelocityX(400);
   else paddle.setVelocityX(0);
+
+   // Si la balle n'est pas lancée, elle colle à la raquette même en tactile.
+  if (!ballLaunched) {
+    ball.setPosition(paddle.x, paddle.y - 30);
+  }
+
+  // Rien ne presse si on joue au toucher : on pilote via pointermove.
+  if (isTouchDevice) {
+    paddle.setVelocityX(0);
+  }
   if (bricks.countActive() === 0) {
     level++;
     updateLife();
@@ -156,6 +175,15 @@ function updateDiamonds(amount) {
   diamondCount += amount;
   diamondsDisplay.textContent = "💎: " + diamondCount;
   diamondText.setText("💎: " + diamondCount);
+}
+
+function movePaddleToPointer(pointer) {
+  const targetX = Phaser.Math.Clamp(pointer.x, 60, 940);
+  paddle.setVelocityX(0);
+  paddle.setX(targetX);
+  if (!ballLaunched) {
+    ball.setX(targetX);
+  }
 }
 
 // ===== BOUTONS =====

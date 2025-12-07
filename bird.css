@@ -115,6 +115,7 @@ body {
   justify-content: center;
   align-items: center;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.4);
+  touch-action: none;
 }
 
 /* Assure que le canvas ou les éléments visuels s’adaptent */
