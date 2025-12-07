@@ -65,9 +65,17 @@ body {
   color: white;
 }
 
+.nav-center .mobile-auth { display: none; }
+
 .nav-right a {
   color: white;
   font-size: 18px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
 }
 
 /* ==================== MENU BURGER ==================== */
@@ -213,9 +221,16 @@ body {
 @media (max-width: 768px) {
   .nav-center { display: none; }
   .burger-menu { display: block; }
+  .nav-right a { display: none; }
+  .nav-center .mobile-auth { display: block; }
 
   #brickActu { width: 90vw; font-size: 16px; gap: 8px; padding: 8px 12px; }
   #controls { flex-direction: column; gap: 10px; }
   #controls button { width: 80%; min-width: auto; font-size: 16px; }
   .footer { flex-direction: column; gap: 8px; text-align: center; font-size: 14px; padding: 10px; }
+}
+
+@media (min-width: 769px) {
+  .nav-center { display: flex; }
+  .nav-center .mobile-auth { display: none; }
 }

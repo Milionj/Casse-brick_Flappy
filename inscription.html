@@ -1,89 +1,75 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-ABC123'; style-src 'self' 'nonce-ABC123'; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: https://a.tile.openstreetmap.org https://b.tile.openstreetmap.org https://c.tile.openstreetmap.org;">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha384-GSh1j6MYw2lMZ4DkB2v0s+T1ReKHcX5g2xPq8CpqOA6yGxxFP5H7yO/tCTDJYxlm" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="inscription.css">
+  <title>Web Gaming Center</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="logo">Web Gaming Center</span>
+    </div>
+    <div class="nav-center">
+      <a href="index.html">Casse-Briques</a>
+      <a href="bird.html">Flappy Bird</a>
+      <a href="inscription.html" class="mobile-auth">Se connecter / S'inscrire</a>
+    </div>
+    <div class="nav-right">
+      <a href="inscription.html">Se connecter / S'inscrire</a>
+    </div>
+  </nav>
 
-        <!-- Sécurisation du site avec Content Security Policy (CSP) -->
-        <meta http-equiv="Content-Security-Policy" content="
-            default-src 'self';  /* ⚠️ N'autorise que les ressources locales (évite les attaques externes) */
-            script-src 'self' 'nonce-ABC123';  /* Seuls les scripts internes et ceux avec un nonce sont autorisés */
-            style-src 'self' 'nonce-ABC123';  /*  Seuls les styles internes et ceux avec un nonce sont autorisés */
-            font-src 'self' https://cdnjs.cloudflare.com;  /* Autorise les polices depuis Cloudflare */
-            img-src 'self' data: 
-                https://a.tile.openstreetmap.org 
-                https://b.tile.openstreetmap.org 
-                https://c.tile.openstreetmap.org;">  /* Autorise les images locales et celles des cartes OpenStreetMap */
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
-              integrity="sha384-GSh1j6MYw2lMZ4DkB2v0s+T1ReKHcX5g2xPq8CpqOA6yGxxFP5H7yO/tCTDJYxlm" 
-              crossorigin="anonymous"/>
-        <!-- L'attribut `integrity` permet de vérifier que le fichier n'a pas été modifié par un tiers (sécurité renforcée) -->
-        <!-- `crossorigin="anonymous"` empêche l'envoi de cookies aux serveurs externes pour éviter des fuites de données -->
-        <link rel="stylesheet" href="inscription.css">
-    </head>
+  <main>
+    <div class="layout">
+      <div class="container" id="container1">
+        <div class="title-container">
+          <h2>Nos Jeux</h2>
+          <p>Essayez nos jeux en ligne !</p>
+        </div>
+        <div class="games-container">
+          <div class="game-card">
+            <img src="img/ai-generated-9143333_1920.jpg" alt="Casse-Briques">
+            <a href="index.html" class="play-button">Jouer</a>
+          </div>
+          <div class="game-card">
+            <img src="img/bird1.png" alt="Flappy Bird">
+            <a href="bird.html" class="play-button">Jouer</a>
+          </div>
+        </div>
+      </div>
 
-    
-    <body>
-        <nav class="navbar">
-            <div class="nav-left">
-                <span class="logo">Web Gaming Center</span>
-            </div>
-            <div class="nav-center">
-                <a href="index.html">Casse-Briques</a>
-                <a href="bird.html">Flappy Bird</a>
-            </div>
-            <div class="nav-right">
-                <a href="#">Se connecter / S'inscrire</a>
-            </div>
-        </nav>
-    
-        <main>                 
-            <div class="layout">
-                <div class="container" id="container1">
-                    <div class="title-container">
-                        <h2>Nos Jeux</h2>
-                        <p>Essayez nos jeux en ligne !</p>                    
-                    </div> 
-                    <div class="games-container">
-                        <div class="game-card">
-                            <img src="img/ai-generated-9143333_1920.jpg" alt="Casse-Briques">
-                            <a href="index.html" class="play-button">Jouer</a>
-                        </div>
-                        <div class="game-card">
-                            <img src="img/bird1.png" alt="Flappy Bird">
-                            <a href="bird.html" class="play-button">Jouer</a>
-                        </div>
-                    </div> 
-                </div> 
-                
-                <div class="container" id="container2">
-                    <div class="title-container">
-                        <h2>Contact</h2>
-                        <p>Envoyez-nous un message</p>                    
-                    </div> 
-                    <form id="contact-form" class="contact-container">
-                        <input type="text" placeholder="Votre nom" name="lastname" id="lastname">
-                        <input type="text" placeholder="Votre prénom" name="firstname" id="firstname">
-                        <input type="email" placeholder="Votre email" name="email" id="email">
-                        <textarea placeholder="Votre message" name="message" rows="4" id="message"></textarea>
-                        <button type="submit" class="validate-button">Envoyer</button>
-                    </form> 
-                </div> 
-                
-            </div>    
-        </main>
+      <div class="container" id="container2">
+        <div class="title-container">
+          <h2>Contact</h2>
+          <p>Envoyez-nous un message</p>
+        </div>
+        <form id="contact-form" class="contact-container">
+          <input type="text" placeholder="Votre nom" name="lastname" id="lastname">
+          <input type="text" placeholder="Votre prénom" name="firstname" id="firstname">
+          <input type="email" placeholder="Votre email" name="email" id="email">
+          <textarea placeholder="Votre message" name="message" rows="4" id="message"></textarea>
+          <button type="submit" class="validate-button">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </main>
 
-        <footer class="footer">
-            <div class="footer-left">
-                <h4>Suivez-nous</h4>
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-            </div>
-            <div class="footer-right">
-                <a href="#">Mentions légales</a>
-                <a href="#">À propos</a>
-                <script src="inscription.js"></script>
-            </div>
-        </footer>
-    </body>
+  <footer class="footer">
+    <div class="footer-left">
+      <h4>Suivez-nous</h4>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+    <div class="footer-right">
+      <a href="#">Mentions légales</a>
+      <a href="#">À propos</a>
+    </div>
+  </footer>
+
+  <script src="inscription.js"></script>
+</body>
 </html>
